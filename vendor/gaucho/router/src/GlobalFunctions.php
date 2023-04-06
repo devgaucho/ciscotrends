@@ -10,7 +10,7 @@ function asset($urls,$print=true,$autoIndent=true){
     }
     foreach($urls as $key=>$url){
 	if(isset($_ENV['THEME'])){
-		$url='/view/'.$_ENV['THEME'].'/'.$url;
+		$url='view/'.$_ENV['THEME'].'/'.$url;
 	}
         $filename=__DIR__.'/../../../../'.$url;
         $path_parts=pathinfo($url);
@@ -87,6 +87,12 @@ function json($data,$print=true){
   }
 }
 function mustache($templateName,$data=[],$print=true){
+	if(isset($_ENV['SITE_NAME'])){
+		$data['SITE_NAME']=$_ENV['SITE_NAME'];
+	}
+	if(isset($_ENV['SITE_URL'])){
+		$data['SITE_URL']=$_ENV['SITE_URL'];
+	}
 	if(isset($data['_indent'])){
 		$indent=$data['_indent'];
 	}else{
