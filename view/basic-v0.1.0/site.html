@@ -9,25 +9,24 @@
 	<body>
 		<table width="800" class="center container">
 			<tr>
-				<td colspan="3">
-{{&inc/top}}
+				<td>
+					{{&inc/top}}
 				</td>	
 			</tr>
 			<tr>
-				<td colspan="3">
-
-				</td>
-			</tr>
-			<tr>
-				<td width="33%"></td>
 				<td>
 					<h1>Rank: {{rank}}</h1>
-					<h2><a href="https://{{domain}}" target="_blank">{{domain}}</a></h2>
+					<h2>
+						<a href="https://{{domain}}" target="_blank">
+						<img src="https://external-content.duckduckgo.com/ip3/{{domain}}.ico" class="largeFavicon">
+						<br>
+						{{domain}}
+						</a>
+					</h2>
 					<h3>
 					Hits: {{hits}}
 					</h3>
 				</td>
-				<td width="33%"></td>
 			</tr>
 		</table>
 	</body>

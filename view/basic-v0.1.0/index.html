@@ -7,27 +7,26 @@
 		{{&assets}}
 	</head>
 	<body>
-		<table width="800" class="center container">
+		<table class="center container">
 			<tr>
-				<td colspan="3">
+				<td>
 					{{&inc/top}}
 				</td>	
 			</tr>
 			<tr>
-				<td width="33%"></td>
 				<td class="left">
 					<h2 class="center">Top 10</h2>
 					<ol class="topList">
 					{{#trends}}
 						<li>
 							<a href="/s/{{domain}}">
+							<img src="https://external-content.duckduckgo.com/ip3/{{domain}}.ico" class="miniFavicon">
 							{{domain}}
 							</a>
 						</li>
 					{{/trends}}
 					</ol>
 				</td>
-				<td width="33%"></td>
 			</tr>
 		</table>
 	</body>
