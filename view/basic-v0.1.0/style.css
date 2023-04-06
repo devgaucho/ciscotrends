@@ -1,0 +1,46 @@
+/*classes*/
+.center{
+	text-align:center;
+}
+.container{
+	margin:0 auto;
+	max-width:100%;
+	width:800px;
+}
+.left{
+	text-align:left;
+}
+.topList li{
+	line-height:1.75em;
+}
+/*tags*/
+a{
+	color:blue;
+	text-decoration:none;	
+}
+a:hover{
+	text-decoration:underline;
+}
+button{
+	cursor:pointer;
+}
+body{
+	font-family: Arial, Helvetica, "Liberation Sans", sans-serif;
+}
+h1,h1 a{
+	color: red;
+	border-width: 0;
+}
+h2 a{
+	color:black;
+}
+h1 a:hover{
+	border-width: 100%;
+	text-decoration:underline;
+}
+label{
+	font-weight:bold;
+}
+input[type=text]{
+	width:50%;
+}

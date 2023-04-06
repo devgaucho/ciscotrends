@@ -1,0 +1,145 @@
+{
+    "packages": [
+        {
+            "name": "gaucho/env",
+            "version": "v0.2.0",
+            "version_normalized": "0.2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/devgaucho/env.git",
+                "reference": "36421261c94dc95bc99cf9073e150ea9733bf9b9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/devgaucho/env/zipball/36421261c94dc95bc99cf9073e150ea9733bf9b9",
+                "reference": "36421261c94dc95bc99cf9073e150ea9733bf9b9",
+                "shasum": ""
+            },
+            "time": "2023-01-29T20:29:07+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "gaucho\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "gaucho.dev",
+                    "email": "119246170+devgaucho@users.noreply.github.com"
+                }
+            ],
+            "description": "Registers environment variables from a .env file (only 40 lines of code!)",
+            "support": {
+                "issues": "https://github.com/devgaucho/env/issues",
+                "source": "https://github.com/devgaucho/env/tree/v0.2.0"
+            },
+            "install-path": "../gaucho/env"
+        },
+        {
+            "name": "gaucho/router",
+            "version": "v0.20.3",
+            "version_normalized": "0.20.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/devgaucho/router.git",
+                "reference": "c46ec5c23fac6cdb36bb30263f9e7442c490a7ff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/devgaucho/router/zipball/c46ec5c23fac6cdb36bb30263f9e7442c490a7ff",
+                "reference": "c46ec5c23fac6cdb36bb30263f9e7442c490a7ff",
+                "shasum": ""
+            },
+            "require": {
+                "gaucho/env": "^0.2.0",
+                "mustache/mustache": "^2.14"
+            },
+            "time": "2023-04-06T22:40:00+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "src/GlobalFunctions.php"
+                ],
+                "psr-4": {
+                    "gaucho\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "gaucho.dev",
+                    "email": "119246170+devgaucho@users.noreply.github.com"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/devgaucho/router/issues",
+                "source": "https://github.com/devgaucho/router/tree/v0.20.3"
+            },
+            "install-path": "../gaucho/router"
+        },
+        {
+            "name": "mustache/mustache",
+            "version": "v2.14.2",
+            "version_normalized": "2.14.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bobthecow/mustache.php.git",
+                "reference": "e62b7c3849d22ec55f3ec425507bf7968193a6cb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bobthecow/mustache.php/zipball/e62b7c3849d22ec55f3ec425507bf7968193a6cb",
+                "reference": "e62b7c3849d22ec55f3ec425507bf7968193a6cb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "~1.11",
+                "phpunit/phpunit": "~3.7|~4.0|~5.0"
+            },
+            "time": "2022-08-23T13:07:01+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-0": {
+                    "Mustache": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Justin Hileman",
+                    "email": "justin@justinhileman.info",
+                    "homepage": "http://justinhileman.com"
+                }
+            ],
+            "description": "A Mustache implementation in PHP.",
+            "homepage": "https://github.com/bobthecow/mustache.php",
+            "keywords": [
+                "mustache",
+                "templating"
+            ],
+            "support": {
+                "issues": "https://github.com/bobthecow/mustache.php/issues",
+                "source": "https://github.com/bobthecow/mustache.php/tree/v2.14.2"
+            },
+            "install-path": "../mustache/mustache"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}

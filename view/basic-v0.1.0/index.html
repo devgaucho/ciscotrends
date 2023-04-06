@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="{{language}}">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{{title}}</title>
+		{{&assets}}
+	</head>
+	<body>
+		<table width="800" class="center container">
+			<tr>
+				<td colspan="3">
+					{{&inc/top}}
+				</td>	
+			</tr>
+			<tr>
+				<td width="33%"></td>
+				<td class="left">
+					<h2 class="center">Top 10</h2>
+					<ol class="topList">
+					{{#trends}}
+						<li>
+							<a href="/s/{{domain}}">
+							{{domain}}
+							</a>
+						</li>
+					{{/trends}}
+					</ol>
+					<p class="center">
+						<a href="/page/2"><strong>Seguintes</strong></a>
+					</p>
+				</td>
+				<td width="33%"></td>
+			</tr>
+		</table>
+	</body>
+</html>

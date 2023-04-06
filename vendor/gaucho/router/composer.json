@@ -1,0 +1,21 @@
+{
+    "name": "gaucho/router",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "gaucho\\": "src/"
+        },
+        "files": ["src/GlobalFunctions.php"]        
+    },
+    "authors": [
+        {
+            "name": "gaucho.dev",
+            "email": "119246170+devgaucho@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "mustache/mustache": "^2.14",
+        "gaucho/env": "^0.2.0"
+    }
+}

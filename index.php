@@ -1,0 +1,60 @@
+<?php
+require 'cfg.php';
+get('/',function(){
+	$sites=<<<heredoc
+1,google.com
+2,www.google.com
+3,microsoft.com
+4,data.microsoft.com
+5,events.data.microsoft.com
+6,live.com
+7,safebrowsing.googleapis.com
+8,windowsupdate.com
+9,apple.com
+10,ctldl.windowsupdate.com
+heredoc;
+	$sites=explode(PHP_EOL,$sites);
+	$trends=null;
+	foreach($sites as $rank=>$csv_row){
+		$row=explode(',',$csv_row);
+		$trends[]=[
+			'domain'=>$row[1],
+			'rank'=>$row[0]
+		];
+	}
+	$data=[
+		'assets'=>assetsDoSite(),
+		'_include'=>[
+			'inc/top'=>['_indent'=>5]
+		],
+		'language'=>linguagemDoSite(),
+		'title'=>'CiscoRank',
+		'trends'=>$trends
+	];
+	mustache('index',$data);
+});
+get('/s/{domain}',function($domain){
+	$data=[
+		'assets'=>assetsDoSite(),
+		'domain'=>$domain,
+		'hits'=>123,
+		'_include'=>[
+			'inc/top'=>['_indent'=>5]
+		],
+		'language'=>linguagemDoSite(),
+		'rank'=>1,
+		'title'=>$domain
+	];
+	mustache('site',$data);
+});
+
+get('/404',function(){
+	$data=[
+		'assets'=>assetsDoSite(),
+		'_include'=>[
+			'inc/top'=>['_indent'=>5]
+		],
+		'language'=>linguagemDoSite()
+	];
+	mustache('404',$data);
+});
