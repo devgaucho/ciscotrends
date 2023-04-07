@@ -6,7 +6,7 @@ require './cfg.php';
 $diaAnteriorArr=xDiasAtras(1);
 
 // ver se o sistema já foi atualizado
-$dataDirStr=realpath('./data');
+$dataDirStr=realpath('./csv');
 $csvArquivadoStr=$dataDirStr.'/'.$diaAnteriorArr['unix_time'].'.csv';
 if(file_exists($csvArquivadoStr)){
 	erroFatal('o sistema já está atualizado');
