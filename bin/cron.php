@@ -1,6 +1,6 @@
 <?php
 system('clear');
-require './cfg.php';
+$startTimeStr=require './cfg.php';
 
 // pegar o dia anterior
 $diaAnteriorArr=xDiasAtras(1);
@@ -9,7 +9,11 @@ $diaAnteriorArr=xDiasAtras(1);
 $dataDirStr=realpath('./csv');
 $csvArquivadoStr=$dataDirStr.'/'.$diaAnteriorArr['unix_time'].'.csv';
 if(file_exists($csvArquivadoStr)){
-	erroFatal('o sistema já está atualizado');
+	if($_ENV['MODO_DEBUG']){
+		sucesso('atualizando novamente no modo debug');
+	}else{
+		erroFatal('o sistema já está atualizado');		
+	}
 }else{
 	sucesso('inciando atualização');
 }
@@ -48,7 +52,26 @@ if(rename($csvFilenameStr,$csvArquivadoStr)){
 }
 
 // ler e salvar o csv na ram
-// fazer o mapa das linhas do csv
+$csvStr=file_get_contents($csvArquivadoStr);
+$m=memcached();
+$code=salvarNaRam($diaAnteriorArr['unix_time'],$csvStr,$m);
+if($code['ok']){
+	sucesso('csv salvo na ram');
+}else{
+	erroFatal($code['error']);	
+}
+
+// fazer o mapa das linhas do csv na ram
 // salvar as tuplas rank => domain na ram
 // salvar as tuplas domain => rank na ram
 // remover da ram o último csv
+
+print PHP_EOL;
+$status=dadosDaRam($m);
+print $status['curr_items'].' item(s) na ram'.PHP_EOL;
+$size=tamanhoBonito($status['bytes']);
+$available=tamanhoBonito($status['limit_maxbytes']);
+print $size.' bytes de '.$available.' na ram (total)'.PHP_EOL;
+print 'o script consumiu '.picoDeMemoria().' de memória'.PHP_EOL;
+print 'script executado em ';
+print end_time($startTimeStr).' segundo(s)'.PHP_EOL;
