@@ -62,6 +62,16 @@ if($code['ok']){
 }
 
 // fazer o mapa das linhas do csv na ram
+$linesArr=mapaDoCsv($csvStr);
+
+// salva o mapa das linhas na ram
+$code=salvarNaRam($diaAnteriorArr['unix_time'].'_map',$linesArr,$m);
+if($code['ok']){
+	sucesso("mapa do csv gerado na ram");
+}else{	
+	erroFatal($code['error']);
+}
+
 // salvar as tuplas rank => domain na ram
 // salvar as tuplas domain => rank na ram
 // remover da ram o último csv
