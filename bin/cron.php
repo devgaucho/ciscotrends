@@ -4,10 +4,11 @@ $startTimeStr=require './cfg.php';
 
 // pegar o dia anterior
 $diaAnteriorArr=xDiasAtras(1);
+$unixInt=$diaAnteriorArr['unix_time'];
 
 // ver se o sistema já foi atualizado
 $dataDirStr=realpath('./csv');
-$csvArquivadoStr=$dataDirStr.'/'.$diaAnteriorArr['unix_time'].'.csv';
+$csvArquivadoStr=$dataDirStr.'/'.$unixInt.'.csv';
 if(file_exists($csvArquivadoStr)){
 	if($_ENV['MODO_DEBUG']){
 		sucesso('atualizando novamente no modo debug');
@@ -54,27 +55,72 @@ if(rename($csvFilenameStr,$csvArquivadoStr)){
 // ler e salvar o csv na ram
 $csvStr=file_get_contents($csvArquivadoStr);
 $m=memcached();
-$code=salvarNaRam($diaAnteriorArr['unix_time'],$csvStr,$m);
+$code=salvarNaRam($unixInt,$csvStr,$m);
 if($code['ok']){
 	sucesso('csv salvo na ram');
 }else{
-	erroFatal($code['error']);	
+	$msg='erro ao salvar o csv na ram '.$code['error'];
+	erroFatal($msg);	
 }
 
 // fazer o mapa das linhas do csv na ram
 $linesArr=mapaDoCsv($csvStr);
 
 // salva o mapa das linhas na ram
-$code=salvarNaRam($diaAnteriorArr['unix_time'].'_map',$linesArr,$m);
+$code=salvarNaRam($unixInt.'_map',$linesArr,$m);
 if($code['ok']){
 	sucesso("mapa do csv gerado na ram");
 }else{	
-	erroFatal($code['error']);
+	$msg='erro ao salvar o mapa do csv na ram '.$code['error'];
+	erroFatal($msg);
 }
 
+// ler o csv na ram
+$rankArr=null;
+$domainArr=null;
+
+foreach ($linesArr as $rankInt => $value) {
+	$data=subOff(
+		$csvStr,$value['start_offset'],
+		$value['end_offset']
+	);
+	$domainStr=trim(csvExplode($data)[1]);
+	$rankArr[$unixInt.'_rank_'.$rankInt]=$domainStr;
+	$domainArr[$unixInt.'_domain_'.$domainStr]=$rankInt;
+}
+sucesso('salvando sites individualmente na ram');
+
 // salvar as tuplas rank => domain na ram
+$code=salvarNaRam($rankArr,null,$m);
+if($code['ok']){
+	sucesso('rank => domain na ram');
+}else{	
+	$msg='erro ao salvar o rank => domain na ram '.$code['error'];
+	die($msg);
+}
+
 // salvar as tuplas domain => rank na ram
-// remover da ram o último csv
+$code=salvarNaRam($domainArr,null,$m);
+if($code['ok']){
+	sucesso('domain => rank na ram');
+}else{	
+	$msg='erro ao salvar o domain => rank na ram '.$code['error'];
+	die($msg);
+}
+
+// remover da ram o último csv e o mapa dele
+$code=apagarDaRam($unixInt);
+if($code['ok']){
+	sucesso('csv removido da ram');
+}else{	
+	die('erro ao remoder o csv da ram');
+}
+$code=apagarDaRam($unixInt.'_map');
+if($code['ok']){
+	sucesso('mapara do csv removido da ram');
+}else{	
+	die('erro ao remoder o mapa do csv da ram');
+}
 
 print PHP_EOL;
 $status=dadosDaRam($m);

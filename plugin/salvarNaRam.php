@@ -14,5 +14,5 @@ function salvarNaRam($key,$mixed=null,$m=false,$ttl=null){
 	}else{
 		$m->set($key,$mixed,$ttl);
 	}
-	return memcached_code($m);
+	return memcachedCode($m);
 }

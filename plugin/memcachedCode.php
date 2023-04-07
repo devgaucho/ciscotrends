@@ -1,5 +1,5 @@
 <?php
-function memcached_code($m=false){
+function memcachedCode($m=false){
 	$code=$m->getResultCode();
 	switch($code){
 		case '00':
