@@ -1,6 +1,6 @@
 {
     "require": {
-        "gaucho/router": "0.21.0",
+        "gaucho/router": "0.21.2",
         "gaucho/env": "^0.2.0"
     }
 }

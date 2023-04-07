@@ -3,6 +3,20 @@
 use gaucho\Env;
 use gaucho\Router;
 
+// carregar plugins no escopo global
+$plugins_path_str=__DIR__.'/../../../../plugin';
+if(file_exists($plugins_path_str)){
+	foreach (glob($plugins_path_str.'/*.php') as $filename){
+    		require_once $filename;
+	}
+}
+
+// caregar o .env
+new Env();
+
+// exibir erros
+show_errors();
+
 function asset($urls,$print=true,$autoIndent=true){
     if(is_string($urls)){
         $arr[]=$urls;
@@ -50,9 +64,6 @@ function delete(...$params){
     Router::delete(...$params);
 }
 function dispatch(){
-	new Env();
-	plugins();
-	showErrors();
 	if(!isCli()){
 		Router::dispatch();
   	}
@@ -143,14 +154,6 @@ function options(...$params){
 function patch(...$params){
     Router::patch(...$params);
 }
-function plugins(){
-    $plugins_path_str=__DIR__.'/../../../../plugin';
-    if(file_exists($plugins_path_str)){
-        foreach (glob($plugins_path_str.'/*.php') as $filename){
-            require_once $filename;
-        }
-    }
-}
 function post(...$params){
     Router::post(...$params);
 }
@@ -181,7 +184,7 @@ function segment($segmentId=null){
         }
     }
 }	
-function showErrors($display_errors=true){
+function show_errors($display_errors=true){
     if(isset($_ENV['DISPLAY_ERRORS'])){
         $display_errors=$_ENV['DISPLAY_ERRORS'];
     }
