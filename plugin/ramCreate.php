@@ -1,5 +1,5 @@
 <?php
-function salvarNaRam($key,$mixed=null,$m=false,$ttl=null){
+function ramCreate($key,$mixed=null,$m=false,$ttl=null){
 	if(!is_int($ttl)){
 		$diaEmSegundos=24*60*60;
 		$ttl=$diaEmSegundos*2;//salva por 2 dias

@@ -1,5 +1,5 @@
 <?php
-function apagarDaRam($key,$m=false){
+function ramDelete($key,$m=false){
 	if(!$m){
 		$m=memcached();
 	}

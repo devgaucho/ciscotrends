@@ -1,0 +1,22 @@
+<?php
+$i=1;
+$limit=10;
+$trends=null;
+$unix_time=xDiasAtras(1)['unix_time'];
+while($i<=$limit){
+	$trends[]=[
+		'domain'=>ramRead($unix_time.'_rank_'.$i),
+		'rank'=>$i
+	];
+	$i++;
+}
+$data=[
+	'assets'=>assetsDoSite(),
+	'_include'=>[
+		'inc/top'=>['_indent'=>5]
+	],
+	'language'=>linguagemDoSite(),
+	'title'=>'CiscoRank',
+	'trends'=>$trends
+];
+mustache('index',$data);

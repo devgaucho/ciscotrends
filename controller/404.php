@@ -1,0 +1,10 @@
+<?php
+$data=[
+	'assets'=>assetsDoSite(),
+	'_include'=>[
+		'inc/top'=>['_indent'=>5]
+	],
+	'language'=>linguagemDoSite()
+];
+mustache('404',$data);
+die();

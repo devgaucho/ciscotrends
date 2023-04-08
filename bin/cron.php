@@ -55,7 +55,7 @@ if(rename($csvFilenameStr,$csvArquivadoStr)){
 // ler e salvar o csv na ram
 $csvStr=file_get_contents($csvArquivadoStr);
 $m=memcached();
-$code=salvarNaRam($unixInt,$csvStr,$m);
+$code=ramCreate($unixInt,$csvStr,$m);
 if($code['ok']){
 	sucesso('csv salvo na ram');
 }else{
@@ -67,7 +67,7 @@ if($code['ok']){
 $linesArr=mapaDoCsv($csvStr);
 
 // salva o mapa das linhas na ram
-$code=salvarNaRam($unixInt.'_map',$linesArr,$m);
+$code=ramCreate($unixInt.'_map',$linesArr,$m);
 if($code['ok']){
 	sucesso("mapa do csv gerado na ram");
 }else{	
@@ -91,33 +91,34 @@ foreach ($linesArr as $rankInt => $value) {
 sucesso('salvando sites individualmente na ram');
 
 // salvar as tuplas rank => domain na ram
-$code=salvarNaRam($rankArr,null,$m);
+$code=ramCreate($rankArr,null,$m);
 if($code['ok']){
-	sucesso('rank => domain na ram');
+	sucesso('rank => domain na ram ('.count($rankArr).' registros)');
 }else{	
 	$msg='erro ao salvar o rank => domain na ram '.$code['error'];
 	die($msg);
 }
 
 // salvar as tuplas domain => rank na ram
-$code=salvarNaRam($domainArr,null,$m);
+$code=ramCreate($domainArr,null,$m);
 if($code['ok']){
-	sucesso('domain => rank na ram');
+	$msg='domain => rank na ram ('.count($domainArr).' registros)';
+	sucesso($msg);
 }else{	
 	$msg='erro ao salvar o domain => rank na ram '.$code['error'];
 	die($msg);
 }
 
 // remover da ram o último csv e o mapa dele
-$code=apagarDaRam($unixInt);
+$code=ramDelete($unixInt);
 if($code['ok']){
 	sucesso('csv removido da ram');
 }else{	
 	die('erro ao remoder o csv da ram');
 }
-$code=apagarDaRam($unixInt.'_map');
+$code=ramDelete($unixInt.'_map');
 if($code['ok']){
-	sucesso('mapara do csv removido da ram');
+	sucesso('mapa do csv removido da ram');
 }else{	
 	die('erro ao remoder o mapa do csv da ram');
 }
