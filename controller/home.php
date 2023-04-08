@@ -1,9 +1,11 @@
 <?php
-$i=1;
-$limit=10;
+$start=1;
+$i=$start;
+$pageLength=10;
+$limit=$start+$pageLength;
 $trends=null;
 $unix_time=xDiasAtras(1)['unix_time'];
-while($i<=$limit){
+while($i<$limit){
 	$trends[]=[
 		'domain'=>ramRead($unix_time.'_rank_'.$i),
 		'rank'=>$i
