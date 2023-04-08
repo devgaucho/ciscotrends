@@ -16,7 +16,7 @@ $data=[
 		'inc/top'=>['_indent'=>5]
 	],
 	'language'=>linguagemDoSite(),
-	'title'=>'CiscoRank',
+	'title'=>$_ENV['SITE_NAME'],
 	'trends'=>$trends
 ];
 mustache('index',$data);
