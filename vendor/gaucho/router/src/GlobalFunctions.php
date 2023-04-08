@@ -160,6 +160,10 @@ function post(...$params){
 function put(...$params){
     Router::put(...$params);
 }
+function redirect($url){
+	header('Location: '.$url);
+	die();
+}
 function segment($segmentId=null){
     $str=$_SERVER["REQUEST_URI"];
     $str=@explode('?', $str)[0];

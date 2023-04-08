@@ -2,6 +2,9 @@
 $start=require './cfg.php';
 
 system("clear");
+$arr=listaDeFuncoesGlobais();
+sort($arr);
+print_r($arr);
 $m=memcached();
 $status=dadosDaRam($m);
 print $status['curr_items'].' item(s) na ram'.PHP_EOL;

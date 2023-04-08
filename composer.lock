@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "51d5527d63616a4c74bdc752d3d39e4b",
+    "content-hash": "3e1af5beedeb1623a5b820fe8c18d74e",
     "packages": [
         {
             "name": "gaucho/env",
@@ -45,16 +45,16 @@
         },
         {
             "name": "gaucho/router",
-            "version": "v0.21.2",
+            "version": "v0.22.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/devgaucho/router.git",
-                "reference": "0092823643fd5ca0923bfde40c1d6624dabc2d2b"
+                "reference": "ffc3aaebe2438249930948c8e7683dea3254df7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/devgaucho/router/zipball/0092823643fd5ca0923bfde40c1d6624dabc2d2b",
-                "reference": "0092823643fd5ca0923bfde40c1d6624dabc2d2b",
+                "url": "https://api.github.com/repos/devgaucho/router/zipball/ffc3aaebe2438249930948c8e7683dea3254df7e",
+                "reference": "ffc3aaebe2438249930948c8e7683dea3254df7e",
                 "shasum": ""
             },
             "require": {
@@ -82,9 +82,9 @@
             ],
             "support": {
                 "issues": "https://github.com/devgaucho/router/issues",
-                "source": "https://github.com/devgaucho/router/tree/v0.21.2"
+                "source": "https://github.com/devgaucho/router/tree/v0.22.0"
             },
-            "time": "2023-04-07T19:26:15+00:00"
+            "time": "2023-04-08T21:44:01+00:00"
         },
         {
             "name": "mustache/mustache",

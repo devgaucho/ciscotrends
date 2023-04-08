@@ -1,6 +1,7 @@
 <?php
 $unix_time=xDiasAtras(1)['unix_time'];
-$rank=ramRead($unix_time.'_domain_'.$domain);
+$domainMD5=md5($domain);
+$rank=ramRead($unix_time.'_domain_'.$domainMD5);
 if(!$rank){
 	require '404.php';
 }

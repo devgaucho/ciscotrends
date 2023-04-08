@@ -30,26 +30,30 @@ if(urlExiste($urlStr)){
 }
 
 // baixar o último zip com o csv
-$zipStr=baixarUrl($urlStr);
-if($zipStr){
-	sucesso('novo csv baixado com sucesso!');
-}else{	
-	erroFatal('erro ao baixar o zip com o csv');
+if(!file_exists($csvArquivadoStr)){
+	$zipStr=baixarUrl($urlStr);
+	if($zipStr){
+		sucesso('novo csv baixado com sucesso!');
+	}else{	
+		erroFatal('erro ao baixar o zip com o csv');
+	}
 }
 
-// salva o último csv em um arquivo remporário
-$nomeDoArquivoTemporarioStr=criarArquivoTemporario($zipStr);
+if(!file_exists($csvArquivadoStr)){
+	// salva o último csv em um arquivo remporário
+	$nomeDoArquivoTemporarioStr=criarArquivoTemporario($zipStr);
 
-// extrair o último csv, renomear e salvar no disco
-extrairZip($nomeDoArquivoTemporarioStr);
-sucesso('novo csv extraído com sucesso!');
-$csvFilenameStr=sys_get_temp_dir().'/top-1m.csv';
+	// extrair o último csv, renomear e salvar no disco
+	extrairZip($nomeDoArquivoTemporarioStr);
+	sucesso('novo csv extraído com sucesso!');
+	$csvFilenameStr=sys_get_temp_dir().'/top-1m.csv';
 
-// mover o csv
-if(rename($csvFilenameStr,$csvArquivadoStr)){
-	sucesso('arquivo csv arquivado com sucesso!');
-}else{
-	erroFatal('erro ao salvar o csv');
+	// mover o csv
+	if(rename($csvFilenameStr,$csvArquivadoStr)){
+		sucesso('arquivo csv arquivado com sucesso!');
+	}else{
+		erroFatal('erro ao salvar o csv');
+	}
 }
 
 // ler e salvar o csv na ram
@@ -64,6 +68,7 @@ if($code['ok']){
 }
 
 // fazer o mapa das linhas do csv na ram
+sucesso('gerando mapa do csv na ram');
 $linesArr=mapaDoCsv($csvStr);
 
 // salva o mapa das linhas na ram
@@ -78,7 +83,6 @@ if($code['ok']){
 // ler o csv na ram
 $rankArr=null;
 $domainArr=null;
-
 foreach ($linesArr as $rankInt => $value) {
 	$data=subOff(
 		$csvStr,$value['start_offset'],
@@ -86,7 +90,7 @@ foreach ($linesArr as $rankInt => $value) {
 	);
 	$domainStr=trim(csvExplode($data)[1]);
 	$rankArr[$unixInt.'_rank_'.$rankInt]=$domainStr;
-	$domainArr[$unixInt.'_domain_'.$domainStr]=$rankInt;
+	$domainArr[$unixInt.'_domain_'.md5($domainStr)]=$rankInt;
 }
 sucesso('salvando sites individualmente na ram');
 

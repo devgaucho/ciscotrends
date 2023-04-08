@@ -1,4 +1,5 @@
 <?php
+code(404);
 $data=[
 	'assets'=>assetsDoSite(),
 	'_include'=>[
