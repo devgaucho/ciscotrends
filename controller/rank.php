@@ -1,5 +1,8 @@
 <?php
-$start=(int) $rank;
+if(!is_numeric($rank)){
+	require '404.php';
+}
+$start=$rank;
 $end=$start+$_ENV['PAGE_LENGTH'];
 if($end<1000000){
 	$nextPage=($end+1);
