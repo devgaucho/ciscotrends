@@ -1,0 +1,23 @@
+<?php
+$start=(int) $rank;
+$end=$start+$_ENV['PAGE_LENGTH'];
+if($end<1000000){
+	$nextPage=($end+1);
+}else{
+	$nextPage=false;
+}
+$trends=[];
+$unix_time=xDiasAtras(1)['unix_time'];
+while($start<=$end){
+	$trends[]=[
+		'domain'=>ramRead($unix_time.'_rank_'.$start),
+		'rank'=>$start
+	];
+	$start++;
+}
+$data=[
+	'_indent'=>6,
+	'trends'=>$trends,
+	'nextPage'=>$nextPage
+];
+mustache('inc/trends',$data);

@@ -1,7 +1,7 @@
 <?php
 $start=1;
 $i=$start;
-$pageLength=10;
+$pageLength=$_ENV['PAGE_LENGTH'];
 $limit=$start+$pageLength;
 $trends=null;
 $unix_time=xDiasAtras(1)['unix_time'];
@@ -15,10 +15,14 @@ while($i<$limit){
 $data=[
 	'assets'=>assetsDoSite(),
 	'_include'=>[
-		'inc/top'=>['_indent'=>5]
+		'inc/top'=>['_indent'=>5],
+		'inc/trends'=>[
+			'_indent'=>6,
+			'trends'=>$trends,
+			'nextPage'=>($pageLength+1)
+		]
 	],
 	'language'=>linguagemDoSite(),
-	'title'=>$_ENV['SITE_NAME'],
-	'trends'=>$trends
+	'title'=>$_ENV['SITE_NAME']
 ];
 mustache('index',$data);

@@ -1,7 +1,9 @@
 <?php
 function assetsDoSite(){
 	$assets=[
-		'style.css',
+		'css/style.css',
+		'js/jquery.jscroll.js',
+		'js/main.js'
 	];
 	return asset($assets,false);
 }

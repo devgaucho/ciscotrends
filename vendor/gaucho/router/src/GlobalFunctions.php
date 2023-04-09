@@ -22,6 +22,7 @@ function asset($urls,$print=true,$autoIndent=true){
         $arr[]=$urls;
         $urls=$arr;
     }
+    $out=null;
     foreach($urls as $key=>$url){
 	if(isset($_ENV['THEME'])){
 		$url='view/'.$_ENV['THEME'].'/'.$url;
@@ -29,7 +30,6 @@ function asset($urls,$print=true,$autoIndent=true){
         $filename=__DIR__.'/../../../../'.$url;
         $path_parts=pathinfo($url);
         $ext=$path_parts['extension'];
-	$out=null;
         if(file_exists($filename)){
             $md5=md5_file($filename);
             if(isset($_ENV['SITE_URL'])){
@@ -38,7 +38,7 @@ function asset($urls,$print=true,$autoIndent=true){
                 $url=$url."?$md5";
             }
             if($autoIndent and $key<>0){
-                $out.='    ';
+                $out.=chr(9).chr(9);
             }
             if($ext=='css'){
                 $out.='<link rel="stylesheet" href="'.$url.'" />';
@@ -49,12 +49,12 @@ function asset($urls,$print=true,$autoIndent=true){
             }
             $out.=PHP_EOL;
         }
-	$out=trim($out);
-	if($print){
-		print $out;
-	}else{
-		return $out;
-	}
+    }
+    $out=trim($out);
+    if($print){
+        print $out;
+    }else{
+	return $out;
     }
 }
 function code($httpCode){

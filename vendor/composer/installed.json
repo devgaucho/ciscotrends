@@ -42,24 +42,24 @@
         },
         {
             "name": "gaucho/router",
-            "version": "v0.22.0",
-            "version_normalized": "0.22.0.0",
+            "version": "v0.22.2",
+            "version_normalized": "0.22.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/devgaucho/router.git",
-                "reference": "ffc3aaebe2438249930948c8e7683dea3254df7e"
+                "reference": "4a8e80085d7eedcee398f7edb3471ba84c3ca71e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/devgaucho/router/zipball/ffc3aaebe2438249930948c8e7683dea3254df7e",
-                "reference": "ffc3aaebe2438249930948c8e7683dea3254df7e",
+                "url": "https://api.github.com/repos/devgaucho/router/zipball/4a8e80085d7eedcee398f7edb3471ba84c3ca71e",
+                "reference": "4a8e80085d7eedcee398f7edb3471ba84c3ca71e",
                 "shasum": ""
             },
             "require": {
                 "gaucho/env": "^0.2.0",
                 "mustache/mustache": "^2.14"
             },
-            "time": "2023-04-08T21:44:01+00:00",
+            "time": "2023-04-09T22:10:27+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -82,7 +82,7 @@
             ],
             "support": {
                 "issues": "https://github.com/devgaucho/router/issues",
-                "source": "https://github.com/devgaucho/router/tree/v0.22.0"
+                "source": "https://github.com/devgaucho/router/tree/v0.22.2"
             },
             "install-path": "../gaucho/router"
         },

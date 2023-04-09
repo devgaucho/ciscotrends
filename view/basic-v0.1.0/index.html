@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>{{title}}</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>		
 		{{&assets}}
 	</head>
 	<body>
@@ -16,15 +17,8 @@
 			<tr>
 				<td class="left">
 					<h2 class="center">Top 10</h2>
-					<ol class="topList">
-					{{#trends}}
-						<li>
-							<a href="/s/{{domain}}">
-							<img src="https://external-content.duckduckgo.com/ip3/{{domain}}.ico" class="miniFavicon">
-							{{domain}}
-							</a>
-						</li>
-					{{/trends}}
+					<ol class="topList" id='links'>
+						{{&inc/trends}}			
 					</ol>
 				</td>
 			</tr>

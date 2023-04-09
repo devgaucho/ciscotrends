@@ -5,6 +5,10 @@ get('/',function(){
 	require 'controller/home.php';
 });
 
+get('/rank/{rank}',function($rank){
+	require 'controller/rank.php';
+});
+
 get('/s',function($domain){
 	require 'controller/search.php';
 });
