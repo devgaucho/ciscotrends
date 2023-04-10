@@ -5,10 +5,13 @@ $pageLength=$_ENV['PAGE_LENGTH'];
 $limit=$start+$pageLength;
 $trends=null;
 $unix_time=xDiasAtras(2)['unix_time'];
+$m=memcached();
 while($i<$limit){
+	$domain=ramRead($unix_time.'_rank_'.$i,$m);
 	$trends[]=[
-		'domain'=>ramRead($unix_time.'_rank_'.$i),
-		'rank'=>$i
+		'domain'=>$domain,
+		'rank'=>$i,
+		'trend'=>upAndDown($domain,$m)
 	];
 	$i++;
 }

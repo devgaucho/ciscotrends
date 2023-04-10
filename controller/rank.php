@@ -11,10 +11,13 @@ if($end<1000000){
 }
 $trends=[];
 $unix_time=xDiasAtras(2)['unix_time'];
+$m=memcached();
 while($start<=$end){
+	$domain=ramRead($unix_time.'_rank_'.$start,$m);
 	$trends[]=[
-		'domain'=>ramRead($unix_time.'_rank_'.$start),
-		'rank'=>$start
+		'domain'=>$domain,
+		'rank'=>$start,
+		'trend'=>upAndDown($domain,$m)
 	];
 	$start++;
 }

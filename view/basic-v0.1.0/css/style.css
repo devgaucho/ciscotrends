@@ -11,10 +11,7 @@
 	color:green;
 }
 .green,.red{
-	background: yellow;
-	border:1px solid gray;
-	border-radius: 5px;
-	padding:2px 5px;
+	word-break: keep-all;
 }
 .largeFavicon{
 	height:64px;

@@ -8,10 +8,10 @@ function upAndDown($domain,$m){
 	if(!empty($rank3d)){
 		$trend=($rank2d-$rank3d);
 		if($trend>0){
-			return '<span class="green">⬆️ '.$trend.'</span>';
+			return '<strong class="green">(+'.$trend.')</strong>';
 		}
 		if($trend<0){
-			return '<span class="red">⬇️ '.$trend.'</span>';
+			return '<strong class="red">('.$trend.')</strong>';
 		}
 	}
 	return null;
