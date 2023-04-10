@@ -4,7 +4,7 @@ $i=$start;
 $pageLength=$_ENV['PAGE_LENGTH'];
 $limit=$start+$pageLength;
 $trends=null;
-$unix_time=xDiasAtras(1)['unix_time'];
+$unix_time=xDiasAtras(2)['unix_time'];
 while($i<$limit){
 	$trends[]=[
 		'domain'=>ramRead($unix_time.'_rank_'.$i),

@@ -7,6 +7,15 @@
 	max-width:100%;
 	width:480px;
 }
+.green{
+	color:green;
+}
+.green,.red{
+	background: yellow;
+	border:1px solid gray;
+	border-radius: 5px;
+	padding:2px 5px;
+}
 .largeFavicon{
 	height:64px;
 	width:64px;
@@ -19,6 +28,9 @@
 	height:20px;
 	margin-bottom:-5px;
 	width:20px;
+}
+.red{
+	color:red;
 }
 .topList li{
 	line-height:1.75em;

@@ -10,7 +10,7 @@ if(isset($parse['host'])){
 
 // verifica se existe
 $domainMD5=md5($q);
-$unix_time=xDiasAtras(1)['unix_time'];
+$unix_time=xDiasAtras(2)['unix_time'];
 $rank=false;
 $domain=false;
 if(is_numeric($q)){

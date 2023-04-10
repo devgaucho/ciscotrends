@@ -10,7 +10,7 @@ if($end<1000000){
 	$nextPage=false;
 }
 $trends=[];
-$unix_time=xDiasAtras(1)['unix_time'];
+$unix_time=xDiasAtras(2)['unix_time'];
 while($start<=$end){
 	$trends[]=[
 		'domain'=>ramRead($unix_time.'_rank_'.$start),

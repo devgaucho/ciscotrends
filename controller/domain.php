@@ -1,10 +1,12 @@
 <?php
-$unix_time=xDiasAtras(1)['unix_time'];
+$unix_time=xDiasAtras(2)['unix_time'];
+$m=memcached();
 $domainMD5=md5($domain);
-$rank=ramRead($unix_time.'_domain_'.$domainMD5);
+$rank=ramRead($unix_time.'_domain_'.$domainMD5,$m);
 if(!$rank){
 	require '404.php';
 }
+$trend=upAndDown($domain,$m);
 $data=[
 	'assets'=>assetsDoSite(),
 	'domain'=>$domain,
@@ -14,6 +16,7 @@ $data=[
 	],
 	'language'=>linguagemDoSite(),
 	'rank'=>$rank,
-	'title'=>$domain
+	'title'=>$domain,
+	'trend'=>$trend
 ];
-mustache('site',$data);
+mustache('domain',$data);
