@@ -2,7 +2,7 @@
 function xDiasAtras($x){
     $time=time();
     $dia=(60*60*24);
-    $curr_time=$time-($dia*1);
+    $curr_time=$time-($dia*$x);
     $data=[];
     date_default_timezone_set('GMT0');
     //https://www.php.net/manual/en/datetimeimmutable.createfromformat.php
