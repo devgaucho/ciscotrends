@@ -7,7 +7,7 @@ $data=[
 			'headerAssets'=>assetsDoSite('header'),
 			'title'=>'Erro'
 		],
-		'inc/top'=>['_indent'=>5],
+		'inc/nav'=>['_indent'=>5],
 		'inc/footer'=>[
 			'footerAssets'=>assetsDoSite('footer')
 		],		

@@ -6,6 +6,13 @@
 	left:0;
 }
 /*classes*/
+.container{
+	margin-top:75px;
+}
+.nav-white{
+	background: white;
+	border-bottom: 1px solid #ced4da;
+}
 .jscroll-inner .list-group-item:first-child {	
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;

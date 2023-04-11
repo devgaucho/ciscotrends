@@ -25,7 +25,7 @@ $data=[
 		'inc/footer'=>[
 			'footerAssets'=>assetsDoSite('footer')
 		],
-		'inc/top'=>['_indent'=>5],
+		'inc/nav'=>['_indent'=>5],
 		'inc/trends'=>[
 			'_indent'=>6,
 			'trends'=>$trends,
@@ -34,4 +34,4 @@ $data=[
 	],
 	'language'=>linguagemDoSite()
 ];
-mustache('index',$data);
+mustache('home',$data);

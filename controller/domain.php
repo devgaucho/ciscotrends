@@ -16,7 +16,7 @@ $data=[
 			'headerAssets'=>assetsDoSite('header'),
 			'title'=>$domain.' | '.$_ENV['SITE_NAME']
 		],		
-		'inc/top'=>['_indent'=>5],
+		'inc/nav'=>['_indent'=>5],
 		'inc/footer'=>[
 			'footerAssets'=>assetsDoSite('footer')
 		],

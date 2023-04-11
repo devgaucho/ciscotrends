@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg fixed-top nav-white">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="{{SITE_URL}}">{{SITE_NAME}}</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarCollapse">
+			<ul class="navbar-nav me-auto mb-2 mb-md-0">
+<!-- 					<li class="nav-item">
+<a class="nav-link" aria-current="page" href="https://twitter.com/ciscorank">Twitter</a>
+</li> -->
+</ul>
+<form class="d-flex" action="{{SITE_URL}}/s/" method="GET" data-pjax role="search">
+	<input class="form-control me-2" name="q" type="search" placeholder="Site ou rank" aria-label="Site">
+	<button class="btn btn-outline-success" type="submit">Buscar</button>
+</form>
+</div>
+</div>
+</nav>
