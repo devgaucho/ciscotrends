@@ -15,12 +15,14 @@ $data=[
 			'_indent'=>2,
 			'headerAssets'=>assetsDoSite('header'),
 			'title'=>$domain.' | '.$_ENV['SITE_NAME']
+		],		
+		'inc/top'=>['_indent'=>5],
+		'inc/footer'=>[
+			'footerAssets'=>assetsDoSite('footer')
 		],
-		'inc/top'=>['_indent'=>5]
 	],
 	'language'=>linguagemDoSite(),
 	'rank'=>$rank,
-	'trend'=>$trend,
-	'footerAssets'=>assetsDoSite('footer')	
+	'trend'=>$trend
 ];
 mustache('domain',$data);

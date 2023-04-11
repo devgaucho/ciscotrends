@@ -7,10 +7,12 @@ $data=[
 			'headerAssets'=>assetsDoSite('header'),
 			'title'=>'Erro'
 		],
-		'inc/top'=>['_indent'=>5]
+		'inc/top'=>['_indent'=>5],
+		'inc/footer'=>[
+			'footerAssets'=>assetsDoSite('footer')
+		],		
 	],
-	'language'=>linguagemDoSite(),
-	'footerAssets'=>assetsDoSite('footer')	
+	'language'=>linguagemDoSite()
 ];
 mustache('404',$data);
 die();

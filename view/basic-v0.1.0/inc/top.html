@@ -1,11 +1,20 @@
-<h1>
-<a href="{{SITE_URL}}">
-{{SITE_NAME}}
-</a>
-</h1>
-<form action="{{SITE_URL}}/s/" method="GET" data-pjax>
-	<label>Digite o site ou o rank dele<br><br>
-	<input type="text" name="q">
-	</label><br>
-	<button type="submit">Pesquisar</button>
-</form>
+<div class="row justify-content-md-center text-center">
+	<div class="col col-lg-6">
+		<h1>
+			<a href="{{SITE_URL}}">
+				{{SITE_NAME}}
+			</a>
+		</h1>
+		<form action="{{SITE_URL}}/s/" method="GET" data-pjax>
+			<div class="mb-3">
+				<label class="form-label" for="q">
+				Digite o site ou o rank dele</label>
+				<input class="form-control" type="text" name="q" id="q">
+			</div>
+			<button class="btn btn-primary" type="submit">Pesquisar</button>
+		</form>			
+		<br>	
+	</div>
+	<!-- col -->
+</div>
+<!-- row -->

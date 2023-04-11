@@ -22,6 +22,9 @@ $data=[
 			'headerAssets'=>assetsDoSite('header'),
 			'title'=>$_ENV['SITE_NAME']
 		],
+		'inc/footer'=>[
+			'footerAssets'=>assetsDoSite('footer')
+		],
 		'inc/top'=>['_indent'=>5],
 		'inc/trends'=>[
 			'_indent'=>6,
@@ -29,7 +32,6 @@ $data=[
 			'nextPage'=>($pageLength+1)
 		]
 	],
-	'language'=>linguagemDoSite(),
-	'footerAssets'=>assetsDoSite('footer')
+	'language'=>linguagemDoSite()
 ];
 mustache('index',$data);

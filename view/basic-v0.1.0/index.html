@@ -4,13 +4,20 @@
 	{{&inc/head}}
 </head>
 <body>
-	{{&inc/top}}
-	<div id="pjax-container">
-		<h2 class="center">Top 1 milhão</h2>
-		<ol class="topList" id='links'>
-			{{&inc/trends}}
-		</ol>
+	<div class="container">
+		{{&inc/top}}
+		<div class="row justify-content-md-center">
+			<div class="col col-lg-6" id="pjax-container">
+				<h2 class="text-center">Top 1 milhão</h2>
+					<div class="list-group" id="links">
+						{{&inc/trends}}
+					</div>
+			</div>
+			<!-- pjax-container -->
+		</div>
+		<!-- row -->
 	</div>
-	{{&footerAssets}}
+	<!-- container -->
+	{{&inc/footer}}	
 </body>
 </html>

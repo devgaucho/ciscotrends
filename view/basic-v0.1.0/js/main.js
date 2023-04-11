@@ -3,6 +3,7 @@ function paginacaoInfinita(){
 		pagingSelector:'.paging',
 		loadingHtml: '<div class="text-center"><img src="/img/loading.gif" alt="Carregando..." /></div>',		
 		nextSelector: '.next:last',
+		contentSelector: 'a',
 		callback:function(){
 
 		},

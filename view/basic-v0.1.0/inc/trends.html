@@ -1,13 +1,24 @@
 {{#trends}}
-<li>
-	<a href="{{SITE_URL}}/s/{{domain}}">
-		<img src="https://external-content.duckduckgo.com/ip3/{{domain}}.ico" class="miniFavicon">
-		{{domain}} {{#trend}}{{&trend}}{{/trend}}
-	</a>
-</li>
+
+<a href="{{SITE_URL}}/s/{{domain}}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
+	<div class="ms-2 me-auto">
+		<div class="fw-bold">
+			{{rank}}.
+			<img height="20" width="20" src="https://external-content.duckduckgo.com/ip3/{{domain}}.ico">
+			<strong>{{domain}}</strong>
+		</div>
+	</div>
+
+	{{#trend}}{{&trend}}{{/trend}}			
+</a>
+
+
+
+
+
 {{/trends}}
 {{#nextPage}}
-<li class="paging">
+<span>
 	<a class="next" href="{{SITE_URL}}/rank/{{nextPage}}"></a>
-</li>
+</span>
 {{/nextPage}}	
