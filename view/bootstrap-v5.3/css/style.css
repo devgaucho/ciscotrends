@@ -17,10 +17,6 @@
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
 }
-.largeFavicon{
-	height:64px;
-	width:64px;
-}
 /*tags*/
 body,html{
 	overflow-x: hidden;
