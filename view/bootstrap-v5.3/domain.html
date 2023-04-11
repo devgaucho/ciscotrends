@@ -10,15 +10,18 @@
 			<div class="col col-lg-6" id="pjax-container">
 				<div class="text-center">
 					<h2>
-						Rank: {{rank}} {{#trend}}{{&trend}}{{/trend}}
-					</h2>
-					<h3>
 						<a href="https://{{domain}}" rel="nofollow" target="_blank">
 							<img src="https://external-content.duckduckgo.com/ip3/{{domain}}.ico" height="64" width="64">
 							<br>
 							{{domain}}
 						</a>
-					</h3>
+					</h2>
+					<h1>
+						<span class="badge text-bg-primary">
+							Rank: {{rank}}	
+						</span>	
+					</h1>					
+					<h3><small>{{#trend}}{{&trend}}{{/trend}}</small></h3>
 				</div>
 				<!-- text-center -->
 			</div>	
