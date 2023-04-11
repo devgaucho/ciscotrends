@@ -1,6 +1,6 @@
 {{#trends}}
 <li>
-	<a href="/s/{{domain}}">
+	<a href="{{SITE_URL}}/s/{{domain}}">
 		<img src="https://external-content.duckduckgo.com/ip3/{{domain}}.ico" class="miniFavicon">
 		{{domain}} {{#trend}}{{&trend}}{{/trend}}
 	</a>
@@ -8,6 +8,6 @@
 {{/trends}}
 {{#nextPage}}
 <li class="paging">
-	<a class="next" href="/rank/{{nextPage}}"></a>
+	<a class="next" href="{{SITE_URL}}/rank/{{nextPage}}"></a>
 </li>
 {{/nextPage}}	

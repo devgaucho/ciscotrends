@@ -17,10 +17,15 @@ $(function(){
 	// pjax
 	var containerSel='#pjax-container';
 	var pjaxOpts={
-		fragment: containerSel,
-		timeout: 10000,
+		fragment:containerSel,
+		timeout:1000,
 	};
-	$(document).pjax('a', containerSel, pjaxOpts);
+	// links
+	$(document).pjax('a',containerSel,pjaxOpts);
+	// forms
+	$(document).on('submit','form',function(event) {
+		$.pjax.submit(event,containerSel);
+	})	
 	var proBarOpts={
 		color   : "white",
 		bgColor : "white", 
