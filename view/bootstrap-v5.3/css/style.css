@@ -28,6 +28,9 @@ button{
 body{
 	font-family: Arial, Helvetica, "Liberation Sans", sans-serif;
 }
+body,html{
+	overflow-x: hidden;
+}
 h1,h1 a{
 	color: red;
 	border-width: 0;
