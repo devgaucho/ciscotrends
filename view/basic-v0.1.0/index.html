@@ -1,27 +1,16 @@
 <!DOCTYPE html>
 <html lang="{{language}}">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>{{title}}</title>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>		
-		{{&assets}}
-	</head>
-	<body>
-		<table class="center container">
-			<tr>
-				<td>
-					{{&inc/top}}
-				</td>	
-			</tr>
-			<tr>
-				<td class="left">
-					<h2 class="center">Top 1 milhão</h2>
-					<ol class="topList" id='links'>
-						{{&inc/trends}}			
-					</ol>
-				</td>
-			</tr>
-		</table>
-	</body>
+<head>
+	{{&inc/head}}
+</head>
+<body>
+	{{&inc/top}}
+	<div id="pjax-container">
+		<h2 class="center">Top 1 milhão</h2>
+		<ol class="topList" id='links'>
+			{{&inc/trends}}
+		</ol>
+	</div>
+	{{&footerAssets}}
+</body>
 </html>

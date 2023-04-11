@@ -1,7 +1,11 @@
-/*classes*/
-.center{
-	text-align:center;
+/*ids*/
+#wrapper-progressBar {
+	position: fixed;
+	z-index: 5;
+	top:0;
+	left:0;
 }
+/*classes*/
 .container{
 	margin:0 auto;
 	max-width:100%;
@@ -28,6 +32,9 @@
 }
 .red{
 	color:red;
+}
+.text-center{
+	text-align:center;
 }
 .topList li{
 	line-height:1.75em;

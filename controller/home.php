@@ -16,8 +16,12 @@ while($i<$limit){
 	$i++;
 }
 $data=[
-	'assets'=>assetsDoSite(),
 	'_include'=>[
+		'inc/head'=>[
+			'_indent'=>2,
+			'headerAssets'=>assetsDoSite('header'),
+			'title'=>$_ENV['SITE_NAME']
+		],
 		'inc/top'=>['_indent'=>5],
 		'inc/trends'=>[
 			'_indent'=>6,
@@ -26,6 +30,6 @@ $data=[
 		]
 	],
 	'language'=>linguagemDoSite(),
-	'title'=>$_ENV['SITE_NAME']
+	'footerAssets'=>assetsDoSite('footer')
 ];
 mustache('index',$data);

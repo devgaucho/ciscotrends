@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html lang="{{language}}">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Erro 404</title>
-		{{&assets}}
-	</head>
-	<body>
-		<table width="800" class="center container">
-			<tr>
-				<td colspan="3">
-					{{&inc/top}}
-					<h2>Erro 404</h2>
-					Página não encontrada
-				</td>	
-			</tr>
-		</table>
-	</body>
+<head>
+	{{&inc/head}}
+</head>
+<body>
+	{{&inc/top}}
+	<div id="pjax-container">
+		<h2>Erro 404</h2>
+		Página não encontrada
+	</div>	
+	{{&footerAssets}}
+</body>
 </html>

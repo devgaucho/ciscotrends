@@ -1,11 +1,16 @@
 <?php
 code(404);
 $data=[
-	'assets'=>assetsDoSite(),
 	'_include'=>[
+		'inc/head'=>[
+			'_indent'=>2,
+			'headerAssets'=>assetsDoSite('header'),
+			'title'=>'Erro'
+		],
 		'inc/top'=>['_indent'=>5]
 	],
-	'language'=>linguagemDoSite()
+	'language'=>linguagemDoSite(),
+	'footerAssets'=>assetsDoSite('footer')	
 ];
 mustache('404',$data);
 die();

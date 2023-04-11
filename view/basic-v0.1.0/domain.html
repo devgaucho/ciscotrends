@@ -1,35 +1,22 @@
 <!DOCTYPE html>
 <html lang="{{language}}">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>{{title}} | {{SITE_NAME}}</title>
-		{{&assets}}
-	</head>
-	<body>
-		<table width="800" class="center container">
-			<tr>
-				<td>
-					{{&inc/top}}
-				</td>	
-			</tr>
-			<tr>
-				<td>
-					<h2>
-						Rank: {{rank}} {{#trend}}{{&trend}}{{/trend}}
-					</h2>
-					<h3>
-						<a href="https://{{domain}}" rel="nofollow" target="_blank">
-						<img src="https://external-content.duckduckgo.com/ip3/{{domain}}.ico" class="largeFavicon">
-						<br>
-						{{domain}}
-						</a>
-					</h3>
-<!-- 					<h3>
-					Hits: {{hits}}
-					</h3> -->
-				</td>
-			</tr>
-		</table>
-	</body>
+<head>
+	{{&inc/head}}
+</head>
+<body>
+	{{&inc/top}}
+	<div id="pjax-container">
+		<h2>
+			Rank: {{rank}} {{#trend}}{{&trend}}{{/trend}}
+		</h2>
+		<h3>
+			<a href="https://{{domain}}" rel="nofollow" target="_blank">
+				<img src="https://external-content.duckduckgo.com/ip3/{{domain}}.ico" class="largeFavicon">
+				<br>
+				{{domain}}
+			</a>
+		</h3>
+	</div>
+	{{&footerAssets}}		
+</body>
 </html>

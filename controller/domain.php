@@ -8,15 +8,19 @@ if(!$rank){
 }
 $trend=upAndDown($domain,$m);
 $data=[
-	'assets'=>assetsDoSite(),
 	'domain'=>$domain,
 	'hits'=>123,
 	'_include'=>[
+		'inc/head'=>[
+			'_indent'=>2,
+			'headerAssets'=>assetsDoSite('header'),
+			'title'=>$domain.' | '.$_ENV['SITE_NAME']
+		],
 		'inc/top'=>['_indent'=>5]
 	],
 	'language'=>linguagemDoSite(),
 	'rank'=>$rank,
-	'title'=>$domain,
-	'trend'=>$trend
+	'trend'=>$trend,
+	'footerAssets'=>assetsDoSite('footer')	
 ];
 mustache('domain',$data);
