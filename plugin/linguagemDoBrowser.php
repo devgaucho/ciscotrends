@@ -2,11 +2,7 @@
 function linguagemDoBrowser($raw=false){
 	$str=@$_SERVER["HTTP_ACCEPT_LANGUAGE"];
 	$str=@strtolower(substr($str,0,2));
-	$linguagensSuportadas=[
-		'en',
-		'es',
-		'pt'
-	];
+	$linguagensSuportadas=explode(',',trim($_ENV['LANGUAGES']));
 	if(in_array($str,$linguagensSuportadas)){
 		return $str;
 	}else{
