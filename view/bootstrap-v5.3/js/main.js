@@ -1,3 +1,4 @@
+// paginação dos trends
 function paginacaoInfinita(){
 	$('#links').jscroll({
 		pagingSelector:'.paging',
