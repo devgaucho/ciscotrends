@@ -27,6 +27,8 @@ $(function(){
 	$(document).on('submit','form',function(event) {
 		$.pjax.submit(event,containerSel);
 	})	
+
+	// probar
 	var proBarOpts={
 		color   : "white",
 		bgColor : "white", 
@@ -37,7 +39,7 @@ $(function(){
 	var probar = new ProBar(proBarOpts);		
 	$(document).on('pjax:send', function() {
 		$(containerSel).LoadingOverlay("show");
-		probar.setColor("black");			
+		probar.setColor("#00a5de");			
 		probar.setWrapperColor("#ecf0f1");		
 		probar.goto(33);
 
