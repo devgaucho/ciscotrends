@@ -7,13 +7,4 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'gaucho\\' => array($vendorDir . '/gaucho/env/src', $vendorDir . '/gaucho/router/src'),
-    'Symfony\\Contracts\\Service\\' => array($vendorDir . '/symfony/service-contracts'),
-    'Symfony\\Contracts\\Cache\\' => array($vendorDir . '/symfony/cache-contracts'),
-    'Symfony\\Component\\VarExporter\\' => array($vendorDir . '/symfony/var-exporter'),
-    'Symfony\\Component\\ExpressionLanguage\\' => array($vendorDir . '/symfony/expression-language'),
-    'Symfony\\Component\\Cache\\' => array($vendorDir . '/symfony/cache'),
-    'Psr\\Log\\' => array($vendorDir . '/psr/log/src'),
-    'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
-    'Psr\\Cache\\' => array($vendorDir . '/psr/cache/src'),
-    'PhpMyAdmin\\MoTranslator\\' => array($vendorDir . '/phpmyadmin/motranslator/src'),
 );

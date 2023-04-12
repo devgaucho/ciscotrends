@@ -25,13 +25,15 @@ $data=[
 		'inc/footer'=>[
 			'footerAssets'=>assetsDoSite('footer')
 		],
-		'inc/nav'=>['_indent'=>5],
+		'inc/nav'=>incNav(),
 		'inc/trends'=>[
 			'_indent'=>6,
 			'trends'=>$trends,
 			'nextPage'=>($pageLength+1)
 		]
 	],
-	'language'=>linguagemDoSite()
+	'language'=>linguagemDoSite(),
+	'_Ranking de 1 milhão de sites'=>null
 ];
+$data=i18n($data);
 mustache('home',$data);

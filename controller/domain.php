@@ -16,13 +16,15 @@ $data=[
 			'headerAssets'=>assetsDoSite('header'),
 			'title'=>$domain.' | '.$_ENV['SITE_NAME']
 		],		
-		'inc/nav'=>['_indent'=>5],
+		'inc/nav'=>incNav(),
 		'inc/footer'=>[
 			'footerAssets'=>assetsDoSite('footer')
 		],
 	],
 	'language'=>linguagemDoSite(),
 	'rank'=>$rank,
+	'_Rank'=>null,
 	'trend'=>$trend
 ];
+$data=i18n($data);
 mustache('domain',$data);

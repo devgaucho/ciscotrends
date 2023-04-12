@@ -7,5 +7,4 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
-    '©' => $vendorDir . '/symfony/cache/Traits/ValueWrapper.php',
 );
