@@ -1,6 +1,7 @@
 {
     "require": {
         "gaucho/router": "0.22.2",
-        "gaucho/env": "^0.2.0"
+        "gaucho/env": "^0.2.0",
+        "phpmyadmin/motranslator": "^5.3"
     }
 }
