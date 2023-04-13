@@ -5,9 +5,11 @@ function baixarDiasAtras($diasAtras,$m){
 	// pegar o dia anterior
 	$diaAnteriorArr=xDiasAtras($diasAtras);
 	$unixInt=$diaAnteriorArr['unix_time'];
-
-	$domain=ramRead($unixInt.'_rank_1');
-	if($domain){
+	$domain=ramRead($unixInt.'_rank_1000000');
+	if(
+		$domain and
+		ramRead($unixInt.'_domain_'.md5($domain))
+	){
 		sucesso('esse dia já está na memória');
 		return true;
 	}
@@ -15,30 +17,22 @@ function baixarDiasAtras($diasAtras,$m){
 	// ver se o sistema já foi atualizado
 	$dataDirStr=realpath('./csv');
 	$csvArquivadoStr=$dataDirStr.'/'.$unixInt.'.csv';
-	if(file_exists($csvArquivadoStr)){
-		if($_ENV['MODO_DEBUG']){
-			sucesso('atualizando novamente no modo debug');
-		}else{
-			erroFatal('o sistema já está atualizado');		
-		}
-	}else{
-		sucesso('inciando atualização');
-	}
+	sucesso('inciando atualização');
 
 	// gerar a url para baixar o último csv disponível
 	$urlStr=gerarUrlDaCisco($diaAnteriorArr['csv']);
-	sucesso($urlStr);
-
-	// verificar se o zip já está disponível pra download
-	if(urlExiste($urlStr)){
-		sucesso('baixando o novo csv');
-	}else{	
-		sucesso('o novo csv ainda não está disponível');
-		return true;
+	if($_ENV['MODO_DEBUG']){
+		sucesso($urlStr);
 	}
 
 	// baixar o último zip com o csv
 	if(!file_exists($csvArquivadoStr)){
+		// verificar se o zip já está disponível pra download
+		if(!urlExiste($urlStr)){
+			sucesso('o novo csv ainda não está disponível');
+			return true;
+		}
+		sucesso('baixando o novo csv');
 		$zipStr=baixarUrl($urlStr);
 		if($zipStr){
 			sucesso('novo csv baixado com sucesso!');
@@ -48,15 +42,15 @@ function baixarDiasAtras($diasAtras,$m){
 	}
 
 	if(!file_exists($csvArquivadoStr)){
-	// salva o último csv em um arquivo remporário
+		// salva o último csv em um arquivo remporário
 		$nomeDoArquivoTemporarioStr=criarArquivoTemporario($zipStr);
 
-	// extrair o último csv, renomear e salvar no disco
+		// extrair o último csv, renomear e salvar no disco
 		extrairZip($nomeDoArquivoTemporarioStr);
 		sucesso('novo csv extraído com sucesso!');
 		$csvFilenameStr=sys_get_temp_dir().'/top-1m.csv';
 
-	// mover o csv
+		// mover o csv
 		if(rename($csvFilenameStr,$csvArquivadoStr)){
 			sucesso('arquivo csv arquivado com sucesso!');
 		}else{
