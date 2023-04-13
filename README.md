@@ -14,8 +14,7 @@ php-bcmath \
 php-curl \
 php-mbstring \
 php-memcached \
-php-zip
-
+php-zip &&
 sudo a2enmod rewrite &&
 sudo a2enmod ssl &&
 sudo systemctl restart apache2
