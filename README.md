@@ -20,6 +20,19 @@ sudo a2enmod ssl &&
 sudo systemctl restart apache2
 ```
 
+## Memcache
+
+```bash
+sudo nano /etc/memcached.conf && sudo /etc/init.d/memcached restart
+```
+
+Configure com 2048 mb de limtie de memória e 128 mb por item:
+
+```
+-m 2048
+-I 128M
+```
+
 ## Crontab
 
 Roda o cron.php a cada 1 hora
