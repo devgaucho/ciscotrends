@@ -1,3 +1,7 @@
 /.env
-/test*.php
 /csv/*.csv
+/favicon.ico
+/img/avatar_alpha.png
+/img/avatar_white.png
+/img/logo.png
+/test*.php
