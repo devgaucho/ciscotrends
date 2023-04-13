@@ -1,6 +1,11 @@
 <?php
 require 'cfg.php';
 
+if($_ENV['MAINTENANCE_MODE']){
+	require 'maintenance.php';
+	die();
+}
+
 get('/',function(){
 	require 'controller/home.php';
 });
