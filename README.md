@@ -20,7 +20,7 @@ sudo a2enmod ssl &&
 sudo systemctl restart apache2
 ```
 
-## Memcache
+## Memcached
 
 ```bash
 sudo nano /etc/memcached.conf && sudo /etc/init.d/memcached restart
