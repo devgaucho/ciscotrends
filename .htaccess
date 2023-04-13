@@ -8,3 +8,21 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
 </IfModule>
 # END WordPress
+
+Options -MultiViews -Indexes
+ErrorDocument 403 /403.php
+
+# arquivos protegidos
+RewriteRule ^(composer\.json) - [F,L]
+RewriteRule ^(composer\.lock) - [F,L]
+RewriteRule ^(\.env) - [F,L]
+RewriteRule ^(\.env.example) - [F,L]
+RewriteRule ^(README\.md) - [F,L]
+
+# diretórios protegidos
+RewriteRule ^.git/ - [F,L]
+RewriteRule ^bin/ - [F,L]
+RewriteRule ^csv/ - [F,L]
+RewriteRule ^controller/ - [F,L]
+RewriteRule ^plugin/ - [F,L]
+RewriteRule ^vendor/ - [F,L]
