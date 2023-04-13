@@ -2,7 +2,7 @@
 function extrairZip($filename,$outDir=false){
 	if (!class_exists('ZipArchive')) {
 		$msg='você precisa instalar a extensão zip no php:'.PHP_EOL;
-		$msg.='sudo apt install php8.1-zip -y &&';
+		$msg.='sudo apt install php-zip -y &&';
 		$msg.=' sudo /etc/init.d/apache2 restart';
 		erroFatal($msg);
 	}
