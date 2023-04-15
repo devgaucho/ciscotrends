@@ -26,3 +26,6 @@ RewriteRule ^csv/ - [F,L]
 RewriteRule ^controller/ - [F,L]
 RewriteRule ^plugin/ - [F,L]
 RewriteRule ^vendor/ - [F,L]
+
+# cors
+Header set Access-Control-Allow-Origin "*"
