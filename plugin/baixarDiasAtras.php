@@ -58,7 +58,7 @@ function baixarDiasAtras($diasAtras,$m){
 				print 'erro ao mover o arquivo'.PHP;
 				print $csvFilenameStr.PHP_EOL;
 				print 'para'.PHP_EOL;
-				print $csvArquivadoStr.PHP_EOL
+				print $csvArquivadoStr.PHP_EOL;
 				if(file_exists($csvFilenameStr)){
 					print 'o arquivo de origem existe';
 				}else{
