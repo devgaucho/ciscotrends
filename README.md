@@ -15,6 +15,7 @@ php-curl \
 php-mbstring \
 php-memcached \
 php-zip &&
+sudo a2enmod headers &&
 sudo a2enmod rewrite &&
 sudo a2enmod ssl &&
 sudo systemctl restart apache2
