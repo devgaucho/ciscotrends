@@ -54,6 +54,24 @@ function baixarDiasAtras($diasAtras,$m){
 		if(rename($csvFilenameStr,$csvArquivadoStr)){
 			sucesso('arquivo csv arquivado com sucesso!');
 		}else{
+			if($_ENV['MODO_DEBUG']){
+				print 'erro ao mover o arquivo'.PHP;
+				print $csvFilenameStr.PHP_EOL;
+				print 'para'.PHP_EOL;
+				print $csvArquivadoStr.PHP_EOL
+				if(file_exists($csvFilenameStr)){
+					print 'o arquivo de origem existe';
+				}else{
+					print 'o arquivo de origem não existe';
+				}
+				print PHP_EOL;				
+				if(file_exists($csvArquivadoStr)){
+					print 'o arquivo de destino existe';
+				}else{
+					print 'o arquivo de destino não existe';
+				}
+				print PHP_EOL;
+			}
 			erroFatal('erro ao salvar o csv');
 		}
 	}
