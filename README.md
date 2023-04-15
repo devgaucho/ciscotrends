@@ -27,7 +27,7 @@ sudo systemctl restart apache2
 sudo nano /etc/memcached.conf && sudo /etc/init.d/memcached restart
 ```
 
-Configure com 2048 mb de limtie de memória e 128 mb por item:
+Configure com 2048 mb de limite de memória e 128 mb por item:
 
 ```
 -m 2048
