@@ -15,7 +15,7 @@ function baixarDiasAtras($diasAtras,$m){
 	}
 
 	// ver se o sistema já foi atualizado
-	$dataDirStr=realpath(__DIR__'/../csv');
+	$dataDirStr=realpath(__DIR__.'/../csv');
 	$csvArquivadoStr=$dataDirStr.'/'.$unixInt.'.csv';
 	sucesso('inciando atualização');
 
