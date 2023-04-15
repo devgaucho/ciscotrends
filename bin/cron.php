@@ -1,6 +1,6 @@
 <?php
 system('clear');
-$startTimeStr=require './cfg.php';
+$startTimeStr=require __DIR__.'/../cfg.php';
 //http://s3-us-west-1.amazonaws.com/umbrella-static/index.html
 $m=memcached();
 $start=1;

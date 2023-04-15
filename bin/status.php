@@ -1,5 +1,5 @@
 <?php
-$start=require './cfg.php';
+$start=require __DIR__.'/../cfg.php';
 
 system("clear");
 $arr=listaDeFuncoesGlobais();
