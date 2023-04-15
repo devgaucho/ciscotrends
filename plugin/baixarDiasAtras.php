@@ -54,7 +54,9 @@ function baixarDiasAtras($diasAtras,$m){
 		if(rename($csvFilenameStr,$csvArquivadoStr)){
 			sucesso('arquivo csv arquivado com sucesso!');
 		}else{
+			print 'erro ao mover o csv'.PHP_EOL;
 			if(@$_ENV['MODO_DEBUG']=='1'){
+				print 'modo debug:'.PHP_EOL;
 				print 'erro ao mover o arquivo'.PHP;
 				print $csvFilenameStr.PHP_EOL;
 				print 'para'.PHP_EOL;
