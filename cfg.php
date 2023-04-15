@@ -1,5 +1,5 @@
 <?php
-if(!file_exists(__DIR__'/.env')){
+if(!file_exists(__DIR__.'/.env')){
 	$msg='cd "'.__DIR__.'" && cp .env.example .env && nano .env';
 	die($msg.PHP_EOL);
 }
