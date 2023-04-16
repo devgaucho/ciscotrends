@@ -36,8 +36,8 @@ Configure com 2048 mb de limite de memória e 128 mb por item:
 
 ## Crontab
 
-Roda o cron.php a cada 1 hora
+Roda o cron.php a cada 1 minuto
 
 ```
-0 * * * * php -f /var/www/ciscorank.com/bin/cron.php > /dev/null &
+* * * * * php -f /var/www/ciscorank.com/bin/cron.php > /dev/null &
 ```
