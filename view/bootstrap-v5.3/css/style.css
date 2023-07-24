@@ -18,9 +18,6 @@
   border-top-right-radius: 6px;
 }
 /*tags*/
-body,html{
-	overflow-x: auto;
-}
 h1,h2,h3{
 	color:#00a5de;
 }
