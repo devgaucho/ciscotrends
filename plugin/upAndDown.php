@@ -9,7 +9,7 @@ function upAndDown($domain,$m){
 		$trend=($rank2d-$rank3d);
 		if($trend>0){
 			$class='badge rounded-pill text-bg-danger';
-			return '<strong class="'.$class.'">'.$trend.'</strong>';
+			return '<strong class="'.$class.'">-'.$trend.'</strong>';
 		}
 		if($trend<0){
 			$class='badge rounded-pill text-bg-success';
