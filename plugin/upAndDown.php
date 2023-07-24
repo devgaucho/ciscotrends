@@ -13,6 +13,7 @@ function upAndDown($domain,$m){
 		}
 		if($trend<0){
 			$class='badge rounded-pill text-bg-success';
+			$trend=1*abs($trend);// inverter sinal
 			return '<strong class="'.$class.'">+'.$trend.'</strong>';
 		}
 	}
