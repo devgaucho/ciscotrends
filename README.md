@@ -1,4 +1,4 @@
-# CiscoRank
+# CiscoTrends
 
 ## Instalação
 
@@ -36,8 +36,8 @@ Configure com 2048 mb de limite de memória e 128 mb por item:
 
 ## Crontab
 
-Roda o cron.php a cada 1 minuto
+Roda o cron.php a cada 1 minuto (crontab -e)
 
 ```
-* * * * * php -f /var/www/ciscorank.com/bin/cron.php > /dev/null &
+* * * * * php -f /var/www/ciscorends.com/bin/cron.php > /dev/null &
 ```
